@@ -1,5 +1,4 @@
 <?php include 'header.php'; ?>
-<?php include 'style.php'; ?>
 <script src="caja.js"></script>
 <div class="topnav">
   <a class="active" href="index2.php">Caja</a>
@@ -9,7 +8,6 @@
   <a class="pull-right">Total Caja: <?php echo number_format($total_caja, 2, ',', '.') ." S/"; ?></a>
   <a class="pull-right">Total Caja + Caja Chica: <?php echo number_format($totaltt, 2, ',', '.') ." S/"; ?></a>
 </div>
-
 
 <script>
 function showHint(str) {
@@ -42,8 +40,9 @@ function showHint(str) {
     $row = mysqli_fetch_array($resultF);
     $fact = $row[0] + 1;
 ?>
-    
+        <!-- Lado izquierdo -->
         <div class="col-lg-3"></div>
+        <!-- Centro -->
         <div class="col-lg-6">
             <div class="col-lg-12">
                 <h1 class=""><p><b>Caja Registradora</b></p></h1>
@@ -116,7 +115,7 @@ function showHint(str) {
                 
             
             <label>Pago del Cliente</label>
-            <input type="number" name="pagado" class="form-control">
+            <input type="number" required name="pagado" class="form-control">
             </div>
             <div class="form-group">
 
@@ -134,7 +133,7 @@ function showHint(str) {
         </div>
 
     
-
+<!-- lado Derecho -->
 <div class="col-lg-3"></div>
 <!-- <script>
 function procesar() {
@@ -145,3 +144,4 @@ function procesar() {
 
 }
 </script> -->
+<?php include 'footer.php'; ?>

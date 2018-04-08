@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
 
-<?php include 'style.php'; ?>
-
-</head>
-<body>
+<?php include 'header.php'; ?>
 <style>
 .tableta {
     border-collapse: collapse;

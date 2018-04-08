@@ -1,3 +1,30 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/png" href="assets/img/favicon.ico">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  
+  <title>Santa Luzmila</title>
+
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+
+  <!-- <link rel="stylesheet" href="bootstrap.min.css"> -->
+  <link rel="stylesheet" href="jquery.dataTables.min.css">
+  <script src="jquery.min.js"></script>
+  <script src="bootstrap.min.js"></script>
+  <script src="jquery-1.12.4.js"></script>
+  <script src="jquery.dataTables.min.js"></script>
+  <link rel="icon" type="image/png" href="assets/img/favicon.ico">
+  <link href="assets/css/bootstrap.css" rel="stylesheet" />
+  <link href="assets/css/fresh-bootstrap-table.css" rel="stylesheet" />
+  <!--     Fonts and icons     -->
+  <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <!-- <link href='assets/css/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'> -->
+        
+</head>
+<body>
+
 <?php 
   date_default_timezone_set('America/Lima');
   // $dias_S = array("Dom","Lun","Mar","Mie","Jue","Vie","Sab");
@@ -38,8 +65,6 @@ $totaltt = $total_caja + $tcaja;
 
 
 ?>
-
-
 
 <style>
 /*body {margin:0;}*/

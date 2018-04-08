@@ -1,7 +1,4 @@
-<?php 
-include 'header.php';
-include "style.php";
-?>
+<?php include 'header.php'; ?>
 <?php 
 	//CConexion a la base de datos. 
 	$fecha_i = $_POST['fecha1'];
@@ -28,5 +25,5 @@ include "style.php";
 </div>
 
 <div class="container text-center">
-	<a href="productos.php" class="btn btn-success">Volver</a>
+	<!-- <a href="productos.php" class="btn btn-success">Volver</a> -->
 </div>

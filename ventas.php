@@ -1,6 +1,5 @@
 <?php 
 include 'header.php';
-include "style.php";
 ?>
 
 <div class="topnav">
@@ -13,32 +12,8 @@ include "style.php";
 </div>
 
 
-<!-- <style>
-#customers {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-#customers td, #customers th {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-
-#customers tr:nth-child(even){background-color: #f2f2f2;}
-
-#customers tr:hover {background-color: #ddd;}
-
-#customers th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: center;
-    background-color: #4CAF50;
-    color: white;
-}
-</style> -->
 <?php 
-//CConexion a la base de datos.	
+//Conexion a la base de datos.	
 $con = mysqli_connect('localhost','root','','sl');
 if (!$con) {
     die('Could not connect: ' . mysqli_error($con));
@@ -56,14 +31,20 @@ $conteo_f = $row[0];
 <div class="container">
   <h2 class="text-center">Facturas</h2>
   <!-- <p>Contextual classes can be used to color table rows or table cells. The classes that can be used are: .active, .success, .info, .warning, and .danger.</p> -->
+
   <!-- <table id="customers" class="table"> -->
-  <table id="example" class="display" style="width:100%">
+<div class="fresh-table full-color-blue">
+<div class="toolbar">
+	<button id="alertBtn" class="btn btn-default">Alert</button>
+</div>
+ 
+  <table id="fresh-table" class="table">
     <thead>
       <tr>
-        <th class="text-center">Factura</th>
-        <th class="text-center">Fecha</th>
-        <th class="text-center">Total S/.</th>
-        <th class="text-center">Accion</th>
+        <th data-field="Factura" class="text-center">Factura</th>
+        <th data-field="Fecha" class="text-center">Fecha</th>
+        <th data-field="Total S/." class="text-center">Total S/.</th>
+        <th data-field="Accion" class="text-center">Accion</th>
       </tr>
     </thead>
     <tbody>
@@ -131,4 +112,6 @@ while ($conteo_f >= $x) {
 ?>
     </tbody>
   </table>
+ </div>
 </div>
+<?php include 'footer.php'; ?>
