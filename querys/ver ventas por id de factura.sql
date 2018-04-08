@@ -1,0 +1,1 @@
+Select * from ventas where id_factura = "1"
