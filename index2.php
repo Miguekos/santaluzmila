@@ -1,13 +1,13 @@
 <?php include 'header.php'; ?>
 <script src="caja.js"></script>
-<div class="topnav">
+<!-- <div class="topnav">
   <a class="active" href="index2.php">Caja</a>
   <a href="ventas.php">Facturas</a>
   <a href="productos.php">Cierre y Control</a>
   <a class="pull-right">Caja Chica: <?php echo number_format($tcaja, 2, ',', '.') ." S/"; ?></a></a>
   <a class="pull-right">Total Caja: <?php echo number_format($total_caja, 2, ',', '.') ." S/"; ?></a>
   <a class="pull-right">Total Caja + Caja Chica: <?php echo number_format($totaltt, 2, ',', '.') ." S/"; ?></a>
-</div>
+</div> -->
 
 <script>
 function showHint(str) {
@@ -45,16 +45,16 @@ function showHint(str) {
         <!-- Centro -->
         <div class="col-lg-6">
             <div class="col-lg-12">
-                <h1 class=""><p><b>Caja Registradora</b></p></h1>
+                <h2 class="">Caja Registradora</h2>
 
-                <h1 id="titulo"><p><b></b></p></h1>
+                <!-- <h1 id="titulo"><p><b></b></p></h1> -->
                 <!-- <form>  -->
-                <div class="col-lg-6">
+                <div class="col-lg-6 has-success">
                     Producto / ID: <input autocomplete="off" class="form-control" autofocus type="text" id="id" onkeyup="showHint(this.value)">
                                     <input autocomplete="off" class="form-control" type="hidden" id="precioP">
                                     <input autocomplete="off" class="form-control" type="hidden" id="idPP">
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6 has-success">
                     Cantidad: <input class="form-control" onkeydown="enter2()" type="number" name="cantidad" id="monto">
                 </div>
                 
@@ -63,7 +63,7 @@ function showHint(str) {
                 
                 <div style="padding-bottom: 2%;">
                     <!-- <a class="btn btn-info" type="button" onclick="agregarProducto(),clean(),operar('multiplicar')">email me</a> -->
-                    <button id="btn" onkeyup="agregarProducto(),operar('multiplicar'),nombres(),clean(),enter6()" style="border-top-width: 1px; margin-top: 10px;" class="btn btn-success">Factura No: <?php echo $fact; ?> </button>
+                    <button id="btn" onkeyup="agregarProducto(),operar('multiplicar'),nombres(),clean(),enter6()" style="border-top-width: 1px; margin-top: 10px;" class="btn btn-success btn-sm">Factura No: <?php echo $fact; ?> </button>
                 </div>
                 <!-- <div class="col-lg-4"> -->
                     
@@ -111,7 +111,7 @@ function showHint(str) {
                 </tfoot>
             </table>
             <!--Agregue un boton en caso de desear enviar los productos para ser procesados-->
-            <div class="pull-right form-group" style="width: 100%;">
+            <div class="pull-right form-group  has-error has-feedback" style="width: 100%;">
                 
             
             <label>Pago del Cliente</label>
@@ -119,20 +119,19 @@ function showHint(str) {
             </div>
             <div class="form-group">
 
-                <button type="text" id="imprimir" class="btn btn-lg btn-success pull-right">Imprimir</button>
+                <button type="text" id="imprimir" class="btn btn-sm btn-success btn-fill pull-right">Imprimir</button>
 
             </div>
         </from>
-        <a class="btn btn-lg btn-danger pull-left" href="index2.php">Limpiar</a>
+        <a class="btn btn-sm btn-danger pull-left" href="index2.php">Limpiar</a>
 
         <!-- <a onclick="procesar()">email me</a> -->
-        <a class="btn btn-lg btn-info" onclick="nombres()">Calcular</a>
+        <a class="btn btn-sm btn-info" onclick="nombres()">Calcular</a>
         <!-- <button id="guardar"  name="guardar" class="btn btn-lg btn-danger pull-right">Calcular</button>  -->
 
         </div>
         </div>
 
-    
 <!-- lado Derecho -->
 <div class="col-lg-3"></div>
 <!-- <script>
@@ -144,4 +143,5 @@ function procesar() {
 
 }
 </script> -->
+
 <?php include 'footer.php'; ?>

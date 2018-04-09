@@ -1,5 +1,4 @@
 
-<?php include 'header.php'; ?>
 <style>
 .tableta {
     border-collapse: collapse;

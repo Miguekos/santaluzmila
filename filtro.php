@@ -17,11 +17,32 @@
 	$filtrarD2 = mysqli_fetch_array($filtrarD1);
 	$filtrarD3 = $filtrarD2[0];
 	// echo $filtrarD3;
-?>
 
+	// $filtrar1D = "Select * from ventas WHERE hora BETWEEN '$fecha_i 00:00:59' AND '$fecha_f 23:59:59'";
+	$filtrar1D = "Select * from ventas WHERE id_factura = '3'";
+	// echo "$filtrar1D";
+	$filtrar1D1 = mysqli_query($con,$filtrar1D);
+	$filtrar1D2 = mysqli_fetch_array($filtrar1D1);
+	$filtrar1D3 = $filtrar1D2[0];
+	// echo $filtrarD3;
+
+	while($row = mysqli_fetch_array($filtrar1D1)) {
+		echo $row[0];
+		echo "<br>";
+		echo $row[1];
+		echo "<br>";
+		echo $row[2];
+		echo "<br>";
+		echo $row[3];
+
+	}
+?>
 
 <div>
 	<h2>Monto total del dia <?php echo "Del dia ". $fecha_i . " al dia " .$fecha_f; ?></h2><h2><small><?php echo number_format($filtrarD3, 2, ',', '.') ." S/"; ?></small></h2>
+</div>
+<div>
+	<h2><?php echo $filtrar1D3; ?></h2>
 </div>
 
 <div class="container text-center">

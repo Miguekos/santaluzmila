@@ -2,15 +2,14 @@
 include 'header.php';
 ?>
 
-<div class="topnav">
+<!-- <div class="topnav">
   <a href="index2.php">Caja</a>
   <a class="active" href="ventas.php">Facturas</a>
   <a href="productos.php">Cierre y Control</a>
-  <a class="pull-right">Caja Chica: <?php echo number_format($tcaja, 2, ',', '.') ." S/"; ?></a></a>
-  <a class="pull-right">Total Caja: <?php echo number_format($total_caja, 2, ',', '.') ." S/"; ?></a>
-  <a class="pull-right">Total Caja + Caja Chica: <?php echo number_format($totaltt, 2, ',', '.') ." S/"; ?></a>
-</div>
-
+  <a class="">Caja Chica: <?php echo number_format($tcaja, 2, ',', '.') ." S/"; ?></a></a>
+  <a class="">Total Caja: <?php echo number_format($total_caja, 2, ',', '.') ." S/"; ?></a>
+  <a class="">Total Caja + Caja Chica: <?php echo number_format($totaltt, 2, ',', '.') ." S/"; ?></a>
+</div> -->
 
 <?php 
 //Conexion a la base de datos.	
@@ -33,12 +32,12 @@ $conteo_f = $row[0];
   <!-- <p>Contextual classes can be used to color table rows or table cells. The classes that can be used are: .active, .success, .info, .warning, and .danger.</p> -->
 
   <!-- <table id="customers" class="table"> -->
-<div class="fresh-table full-color-blue">
-<div class="toolbar">
-	<button id="alertBtn" class="btn btn-default">Alert</button>
-</div>
+<!-- <div class="fresh-table full-color-blue"> -->
  
-  <table id="fresh-table" class="table">
+  <!-- <table id="customers" class="table"> -->
+  <!-- <table id="example" class="display" style="width:100%"> -->
+  	<table id="datatable" class="table table-striped table-bordered" style="width:100%">
+  	<!-- <table id="datatable" class="display" style="width:100%"> -->
     <thead>
       <tr>
         <th data-field="Factura" class="text-center">Factura</th>
@@ -112,6 +111,39 @@ while ($conteo_f >= $x) {
 ?>
     </tbody>
   </table>
- </div>
+ <!-- </div> -->
 </div>
+
 <?php include 'footer.php'; ?>
+<script type="text/javascript">
+	$(document).ready(function() {
+    $('#datatable').DataTable( {
+        "language": {
+        	"sProcessing":     "Procesando...",
+		    "sLengthMenu":     "Mostrar _MENU_ registros",
+		    "sZeroRecords":    "No se encontraron resultados",
+		    "sEmptyTable":     "Ningún dato disponible en esta tabla",
+		    "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+		    "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+		    "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+		    "sInfoPostFix":    "",
+		    "sSearch":         "Buscar:",
+		    "sUrl":            "",
+		    "sInfoThousands":  ",",
+		    "sLoadingRecords": "Cargando...",
+		    "oPaginate": {
+		        "sFirst":    "Primero",
+		        "sLast":     "Último",
+		        "sNext":     "Siguiente",
+		        "sPrevious": "Anterior"
+		    },
+		    "oAria": {
+		        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+		        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+		    }
+		        }
+    } );
+	} );
+
+
+</script>
