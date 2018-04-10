@@ -321,6 +321,7 @@ function imprimir(){
     if (event.keyCode == 120)
     {
       $('#imprimir').focus();
+      console.log("preciono f9");
       // $('#monto').val('');
       // console.log("imprimir");
       // event.returnValue=false;

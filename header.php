@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <link rel="icon" type="image/png" href="assets/img/favicon.ico">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   
@@ -19,19 +20,24 @@
   <link href="bootstrap3/css/font-awesome.css" rel="stylesheet">
   <!-- <link href='http://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'> -->
 
-  <!-- <link rel="stylesheet" href="bootstrap.min.css"> -->
-  <link rel="stylesheet" href="jquery.dataTables.min.css">
   
+  <!-- <link rel="stylesheet" href="jquery.dataTables.min.css"> -->
 
-  
-  
+
+  <!-- <script src="jquery/jquery-1.10.2.js" type="text/javascript"></script> -->
+
+
+  <!-- <link rel="stylesheet" href="bootstrap.min.css"> -->
+  <link rel="stylesheet" href="dataTables.bootstrap.min.css">
+  <script src="jquery-1.12.4.js"></script>
+  <script src="jquery.dataTables.min.js"></script>
+  <script src="dataTables.bootstrap.min.js"></script>
+      
 
   <!-- <script src="jquery.min.js"></script> -->
   <!-- <script src="bootstrap.min.js"></script> -->
   <!-- tabla responsive -->
-  <!-- <script src="dataTables.bootstrap.min.js"></script> -->
-  <script src="jquery-1.12.4.js"></script>
-  <script src="jquery.dataTables.min.js"></script>
+  
   <!-- <link rel="icon" type="image/png" href="assets/img/favicon.ico"> -->
   <!-- <link href="assets/css/bootstrap.css" rel="stylesheet" /> -->
   <!-- <link href="assets/css/fresh-bootstrap-table.css" rel="stylesheet" /> -->
@@ -41,16 +47,16 @@
 
 
 </head>
-<body>
+<body style="font-family: 'segoe ui';" onkeydown="imprimir()">
 
-<!-- <style>
+<style>
 table {
   border-collapse: collapse;
   border: 1px solid #ccc;
   margin-top: 25px;
 }
 table thead th {
-  background-color: #f2f2f2;
+  /*background-color: #f2f2f2;*/
   font-weight: 500;
 }
 table thead th,
@@ -68,7 +74,29 @@ table thead tr,
 table tbody tr:not(:last-of-type) {
   border-bottom: 1px solid #ccc;
 }
-</style> -->
+
+
+
+table {
+    border-radius: 3px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border-radius: 3px;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    border-radius: 3px;
+    background-color: #5ecbff;
+    color: white;
+}
+</style>
 
 
 
@@ -96,13 +124,19 @@ if (!$con) {
 }
 mysqli_select_db($con,"ajax_demo");
 
-$TotalCaja = "Select sum(total) from ventas";
+$ultimahora = "Select horasdelcierre from horadecierre order by horasdelcierre desc limit 1";
+$uhc = mysqli_query($con,$ultimahora);
+$uhc1 = mysqli_fetch_array($uhc);
+$uhc2 = $uhc1[0];
+//echo "Ultimahoradel cierre".$uhc2;
+
+$TotalCaja = "Select sum(total) from ventas WHERE hora > '$uhc2'";
 $totalc = mysqli_query($con,$TotalCaja);
 $rowTC = mysqli_fetch_array($totalc);
 $total_caja = $rowTC[0];
 // echo $conteo_f;
 
-$cajachica1 = "Select cajachica from control";
+$cajachica1 = "Select cajachica from control order by hora desc limit 1";
 $caja2 = mysqli_query($con,$cajachica1);
 $caja3 = mysqli_fetch_array($caja2);
 $tcaja = $caja3[0];
@@ -173,7 +207,7 @@ $totaltt = $total_caja + $tcaja;
 
             <li><a href="ventas.php">Facturas</a></li>
 
-            <li class=""><a href="productos.php">Cierre y Control</a></li>
+            <li class=""><a href="productos.php">Filtrar por Dias</a></li>
 
             <!-- <li><a href="#">Otros</a></li> -->
 
@@ -183,11 +217,11 @@ $totaltt = $total_caja + $tcaja;
 
               <ul class="dropdown-menu">
 
-                <li><a href="#">Cierre de Caja</a></li>
+                <li><a href="cierre.php">Cierre de Caja</a></li>
 
                 <!-- <li><a href="#"></a></li> -->
 
-                <li><a href="#">Filtrar por fechas</a></li>
+                <li><a href="cajachica.php">Caja Chica</a></li>
 
                 <li class="divider"></li>
 

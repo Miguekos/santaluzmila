@@ -36,8 +36,7 @@ $conteo_f = $row[0];
  
   <!-- <table id="customers" class="table"> -->
   <!-- <table id="example" class="display" style="width:100%"> -->
-  	<table id="datatable" class="table table-striped table-bordered" style="width:100%">
-  	<!-- <table id="datatable" class="display" style="width:100%"> -->
+	<table id="example" class="table table-striped table-bordered" style="width:100%">
     <thead>
       <tr>
         <th data-field="Factura" class="text-center">Factura</th>
@@ -64,41 +63,23 @@ while ($conteo_f >= $x) {
 	$rowS = mysqli_fetch_array($result_S_F);
 	$num1 = $row[0];
 	$num2 = $row[1];
-	// $date = $num2;
-	// $fecha1 = date($num2);
-	// echo date('l dS \o\f F Y h:i:s A', $fecha1);
-	// echo date('w', $row[1]);
-	// $fecha = date('Y-m-d', strtotime(str_replace('-','/', $date)));
-	// $fecha = date("d-m-y", $date);
-	// $fecha = date('$dias_S[date('d')]', strtotime($date));
-	// $fecha = date('l-M-Y', strtotime(str_replace('-','/', $date)));
-	// echo date('l', strtotime(str_replace('-','/', $date)));
-	// echo date($dias_S[date('w')], strtotime(str_replace('-','/', $date)));
-	// echo date($dias_S[date('D')]), strtotime(str_replace('-','/', $date));
-	// echo date($dias_S[date('w')]." ".date('j').", ".$meses_S[date('n')-1]. "  ".date('Y'). ", " .date('g:i a')), strtotime(str_replace('','', $date));
-	// echo date($dias_S[date('D')])."asd".($meses_S[date('M')]), strtotime(str_replace('-','/', $date));
-	// $fecha = date('F/j/Y',$num2);
-	// $fecha = date('Y-m-d G:i:s');
-
 	$date = date_create("$num2");
 	$diaL1 = date_format($date,"w");
 	$diaN1 = date_format($date,"j");
 	$mes1 = date_format($date,"n")-1;
 	$ano1 = date_format($date,"Y");
 	$hora = date_format($date,"g:i a");
-
 	$dia1 = $dias_S["$diaL1"];
 	$dia2 = $diaN1;
 	$mes =  $meses_S["$mes1"];
 	$ano =  $ano1;
 	$hora = $hora;
 
-
 	// $fecha = date_format($date,"$dias_S['n']");
 	
 	$num3 = $rowS[0];
 	$num4 = number_format($num3, 2, '.', '') ." S/";
-	echo "<tr>";
+		echo "<tr>";
     echo "<td class='text-center'>".$num1."</td>";
     echo "<td class='text-center'>".$dia1." ".$dia2.", ".$mes." ".$ano.", ".$hora."</td>";
     echo "<td class='text-center'>".$num4."</td>";
@@ -115,35 +96,3 @@ while ($conteo_f >= $x) {
 </div>
 
 <?php include 'footer.php'; ?>
-<script type="text/javascript">
-	$(document).ready(function() {
-    $('#datatable').DataTable( {
-        "language": {
-        	"sProcessing":     "Procesando...",
-		    "sLengthMenu":     "Mostrar _MENU_ registros",
-		    "sZeroRecords":    "No se encontraron resultados",
-		    "sEmptyTable":     "Ningún dato disponible en esta tabla",
-		    "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-		    "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
-		    "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
-		    "sInfoPostFix":    "",
-		    "sSearch":         "Buscar:",
-		    "sUrl":            "",
-		    "sInfoThousands":  ",",
-		    "sLoadingRecords": "Cargando...",
-		    "oPaginate": {
-		        "sFirst":    "Primero",
-		        "sLast":     "Último",
-		        "sNext":     "Siguiente",
-		        "sPrevious": "Anterior"
-		    },
-		    "oAria": {
-		        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
-		        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-		    }
-		        }
-    } );
-	} );
-
-
-</script>

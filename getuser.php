@@ -30,7 +30,7 @@ $sql="SELECT * FROM productos WHERE id = '".$q."' or nombre LIKE '%".$q."%' or c
 // $sql="SELECT * FROM productos";
 $result = mysqli_query($con,$sql);
 
-echo "<table class='tableta'>
+echo "<table class='table'>
 <tr>
 <th class=''>ID</th>
 <th class=''>Categoria</th>

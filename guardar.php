@@ -52,9 +52,8 @@ th {
 </style>
 
 <link rel="stylesheet" href="bootstrap.min.css">
-
 <?php
-
+echo "<body onkeydown='enter4()'>";
 $con = mysqli_connect('localhost','root','','sl');
 if (!$con) {
     die('Could not connect: ' . mysqli_error($con));
@@ -68,9 +67,15 @@ $resultF = mysqli_query($con,$id_factura);
 $row = mysqli_fetch_array($resultF);
 $fact = $row[0]; 
 if ($fact == $factP) {
-    echo "Factura ya existe";
+        ?>
+    <script>
+    alert("Factura ya Existe");
+    window.location.replace('index2.php');
+    </script>
+    <?php
 }else{
-    echo "<div class='centro'>";
+    echo "<form>";
+    echo "<div onkeypress='enter4()' class='centro'>";
     echo "PLAZAVEA - SUPERMECADOS S.A <br>";
     echo "RUC 2000000000 Morelli 181 P-2 Lima <br>";
     // echo "Lima - San Borja <br>";
@@ -141,18 +146,21 @@ if ($fact == $factP) {
 
 // echo "$pagado";
 
-
 // echo "<button href='index2.php' style='border-top-width: 1px; margin-top: 10px;' class='centro btn btn-success'>Vender</button>";
 echo "<p id='pago'></p>";
-echo "<a onkeypress='enter4()' id='nuevaventa' class='btn btn-success text-center centro' href='index2.php'> Nueva Venta</a>";
+echo "<a onkeydown='enter4()' id='nuevaventa' class='btn btn-success text-center centro' href='index2.php'> Nueva Venta</a>";
+echo "</form>";
 ?>
+</body>
 <script>
 function enter4(){
-    if (event.keyCode == 13)
-    {
+    //if (event.keyCode == 13)
+    //{
       $('#nuevaventa').focus();
       // $('#monto').val('');
       // event.returnValue=false;
-    }
+    //}
 }
 </script>
+<script src="jquery-1.12.4.js"></script>
+

@@ -27,7 +27,7 @@ function showHint(str) {
 }
 </script>
 
-<div class="container text-center col-lg-12">
+<div class="container col-lg-12">
 <?php 
 
     $con = mysqli_connect('localhost','root','','sl');
@@ -45,12 +45,12 @@ function showHint(str) {
         <!-- Centro -->
         <div class="col-lg-6">
             <div class="col-lg-12">
-                <h2 class="">Caja Registradora</h2>
+                <h2 class="text-center">Caja Registradora</h2>
 
                 <!-- <h1 id="titulo"><p><b></b></p></h1> -->
                 <!-- <form>  -->
                 <div class="col-lg-6 has-success">
-                    Producto / ID: <input autocomplete="off" class="form-control" autofocus type="text" id="id" onkeyup="showHint(this.value)">
+                    Producto / ID: <input autocomplete="off" class="form-control" autofocus type="text" id="id" onkeydown="imprimir()" onkeyup="showHint(this.value)">
                                     <input autocomplete="off" class="form-control" type="hidden" id="precioP">
                                     <input autocomplete="off" class="form-control" type="hidden" id="idPP">
                 </div>
@@ -61,7 +61,7 @@ function showHint(str) {
                 <!-- <input type="submit" value="Agregar" onclick="agregarProducto(),clean(),operar('multiplicar')" class="btn btn-lg btn-default"></input> -->
                 
                 
-                <div style="padding-bottom: 2%;">
+                <div class="text-center" style="padding-bottom: 2%;">
                     <!-- <a class="btn btn-info" type="button" onclick="agregarProducto(),clean(),operar('multiplicar')">email me</a> -->
                     <button id="btn" onkeyup="agregarProducto(),operar('multiplicar'),nombres(),clean(),enter6()" style="border-top-width: 1px; margin-top: 10px;" class="btn btn-success btn-sm">Factura No: <?php echo $fact; ?> </button>
                 </div>
@@ -85,7 +85,7 @@ function showHint(str) {
             <table id="TablaPro" class="table">
                 <thead>
                     <tr>
-                        <th style="width:80%">Producto</th>
+                        <th style="width:100%">Producto</th>
                         <th>Cantidad</th>
                         <th>Precio</th>
                         <th>Total</th>
@@ -111,15 +111,13 @@ function showHint(str) {
                 </tfoot>
             </table>
             <!--Agregue un boton en caso de desear enviar los productos para ser procesados-->
-            <div class="pull-right form-group  has-error has-feedback" style="width: 100%;">
-                
-            
-            <label>Pago del Cliente</label>
-            <input type="number" required name="pagado" class="form-control">
+            <label class="text-center">Pago del Cliente</label>
+            <div class="pull-right form-group has-error has-feedback" style="width: 100%;">
+            <input type="number" required id="imprimir" name="pagado" class="form-control">
             </div>
             <div class="form-group">
 
-                <button type="text" id="imprimir" class="btn btn-sm btn-success btn-fill pull-right">Imprimir</button>
+                <button type="submit" class="btn btn-sm btn-success btn-fill pull-right">Imprimir</button>
 
             </div>
         </from>
