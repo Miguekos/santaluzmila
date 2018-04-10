@@ -42,7 +42,6 @@ $conteo_C = $rowC[0];
 <form action="guardarcierre.php" method="POST" accept-charset="utf-8">
 	<div class="container">
 		<h2 class="text-center">Cierre de Caja</h2>
-		<h6 class="text-center">Cierre N°: <?php echo $conteo_C + 1; ?></h6>
 		<input type="hidden" name="cierre" value="<?php echo $conteo_C + 1; ?>">
 			
 		<div class="form-group col-lg-3">
@@ -63,7 +62,7 @@ $conteo_C = $rowC[0];
 		</div>
 	</div>
 	<div class="text-center form-group col-lg-12">
-		<button class="btn btn-info">Cerrar</button>
+		<button class="btn btn-info">Cerrar Caja N°: <?php echo $conteo_C + 1; ?></button>
 	</div>
 </form>
 
@@ -78,7 +77,7 @@ $conteo_f = $row[0];
 ?>
 
 <div class="container">
-  <h2 class="text-center">Cierres</h2>
+  <h2 class="text-center">Historial</h2>
   	<table id="example" class="table table-striped table-bordered" style="width:100%">
     <thead>
       <tr>

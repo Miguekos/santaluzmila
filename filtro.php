@@ -11,7 +11,7 @@
 	}
 	mysqli_select_db($con,"ajax_demo");
 
-	$filtrarD = "Select sum(total) from ventas WHERE hora BETWEEN '$fecha_i 00:00:59' AND '$fecha_f 23:59:59'";
+	$filtrarD = "Select sum(total) from ventas WHERE hora BETWEEN '$fecha_i' AND '$fecha_f'";
 	// echo "$filtrarD";
 	$filtrarD1 = mysqli_query($con,$filtrarD);
 	$filtrarD2 = mysqli_fetch_array($filtrarD1);
@@ -20,13 +20,14 @@
 
 	// $filtrar1D = "Select * from ventas WHERE hora BETWEEN '$fecha_i 00:00:59' AND '$fecha_f 23:59:59'";
 	// $filtrar1D = "Select * from ventas WHERE id_factura = '1'";
-	$filtrar1D = "Select * from ventas WHERE hora BETWEEN '$fecha_i 00:00:59' AND '$fecha_f 23:59:59'";
+	$filtrar1D = "Select * from ventas WHERE hora BETWEEN '$fecha_i' AND '$fecha_f'";
 	// echo "$filtrar1D";
 	$filtrar1D1 = mysqli_query($con,$filtrar1D);
 	$filtrar1D2 = mysqli_fetch_array($filtrar1D1);
 	$filtrar1D3 = $filtrar1D2[0];
 	// echo $filtrarD3;
 ?>
+<div class="col-lg-12">
 <div>
 	<h2 class="text-center">Monto total <?php echo "del dia<b> ". $fecha_i . " </b>al dia <b>" .$fecha_f . "</b>"; ?></h2>
 	<h3 class="text-center"><?php echo "Total de Busqueda: <b>".number_format($filtrarD3, 2, ',', '.') ." S/</b>"; ?></h3>
@@ -55,11 +56,9 @@
 		echo "<td class='text-center'>".$row[5]." S/.</td>";
 		echo "<td class='text-center'>".$row[6]."</td>";
 		echo "</tr>";
-
 	}
 ?>
     </tbody>
   </table>
-
-
-
+</div>
+<?php include 'footer.php'; ?>
